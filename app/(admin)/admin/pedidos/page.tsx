@@ -132,7 +132,7 @@ export default function OrdersPage() {
                     ${order.total.toLocaleString()}
                   </td>
                   <td className="py-4 px-6">
-                    <StatusBadge status={order.status} type="order" />
+                    <StatusBadge status={order.status} />
                   </td>
                   <td className="py-4 px-6">
                     <Link

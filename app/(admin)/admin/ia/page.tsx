@@ -142,25 +142,28 @@ export default function AIPage() {
         <h3 className="font-bold text-gray-900 mb-4">Acciones rápidas</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Cerrar conversación", color: "gray" },
-            { label: "Escalar a humano", color: "orange" },
-            { label: "Enviar catálogo", color: "violet" },
-            { label: "Registrar nota", color: "blue" },
-          ].map((action, i) => (
-            <button
-              key={i}
-              className={`px-4 py-2 rounded-lg font-semibold text-sm transition-colors ${
-                {
-                  gray: "bg-gray-100 text-gray-900 hover:bg-gray-200",
-                  orange: "bg-orange-100 text-orange-700 hover:bg-orange-200",
-                  violet: "bg-violet-100 text-violet-700 hover:bg-violet-200",
-                  blue: "bg-blue-100 text-blue-700 hover:bg-blue-200",
-                }[color]
-              }`}
-            >
-              {action.label}
-            </button>
-          ))}
+            { label: "Cerrar conversación", color: "gray" as const },
+            { label: "Escalar a humano", color: "orange" as const },
+            { label: "Enviar catálogo", color: "violet" as const },
+            { label: "Registrar nota", color: "blue" as const },
+          ].map((action, i) => {
+            const colorStyles: Record<string, string> = {
+              gray: "bg-gray-100 text-gray-900 hover:bg-gray-200",
+              orange: "bg-orange-100 text-orange-700 hover:bg-orange-200",
+              violet: "bg-violet-100 text-violet-700 hover:bg-violet-200",
+              blue: "bg-blue-100 text-blue-700 hover:bg-blue-200",
+            };
+            return (
+              <button
+                key={i}
+                className={`px-4 py-2 rounded-lg font-semibold text-sm transition-colors ${
+                  colorStyles[action.color]
+                }`}
+              >
+                {action.label}
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>

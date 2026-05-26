@@ -33,7 +33,7 @@ export default function OrderDetailPage({ params }: { params: { id: string } }) 
               <Download size={18} />
               Descargar PDF
             </button>
-            <StatusBadge status={order.status} type="order" />
+            <StatusBadge status={order.status} />
           </div>
         </div>
       </div>
