@@ -101,7 +101,7 @@ export default function CustomerDetailPage({ params }: { params: { id: string } 
                       <p className="font-bold text-gray-900">
                         ${order.total.toLocaleString()}
                       </p>
-                      <StatusBadge status={order.status} type="order" />
+                      <StatusBadge status={order.status} />
                     </div>
                   </div>
                 ))}
